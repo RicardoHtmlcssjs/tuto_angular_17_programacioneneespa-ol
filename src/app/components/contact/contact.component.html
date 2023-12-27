@@ -1,0 +1,25 @@
+<section>
+  <h1>Contact</h1>
+  <form>
+    <label for="framework"> Favorite framework</label>
+    <!-- [(ngModel)]="favoriteFrameworkeste funvion hace que se renderize el valor del formulario en el componente tambien y agregar [ngModelOptions]="{standalone:true}  con esto la variable  favoriteFramework se estara actalizando automaticamente ya que se esta imprimiendo en pantalla -->
+    <input id="framework" type="text" [(ngModel)]="favoriteFramework" [ngModelOptions]="{standalone:true}">
+  </form>
+  {{ favoriteFramework }}
+</section>
+<!-- ACCESO  DE UN FORMULARIO -->
+<!-- para que formulario funcione y poder mandar los valores a el componente la etiqueta form tiene que tener [formGroup]="profileForm"  y como identificador de cada input formControlName="name"  para haci poderlos identificar -->
+<!-- (ngSubmit)="handleConstactFormSubmit()" esto espesifca la funcion que llamara al enviar el formulario-->
+<section>
+  <h1>Reactive form</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="handleConstactFormSubmit()">
+    <label for="">Nombre</label>
+    <input type="text" formControlName="name">
+    <label for="">Email</label>
+    <input type="email" formControlName="email">
+    <!-- [disabled]="!contactForm.valid"   ESTO LO QUE HACE ES QUE SI EL contacForm no es valido desabilitame el boton, en este caso si un input esta vacio -->
+    <button [disabled]="!contactForm.valid" type="submit">Enviar</button>
+  </form>
+  <p>Nombre: {{contactForm.value.name}}</p>
+  <p>Nombre: {{contactForm.value.email}}</p>
+</section>

@@ -1,0 +1,35 @@
+<h1>Hello {{ username }}</h1>
+<!-- vesion 17 de angular  -->
+<p>VERSION 17 DE ANGULAR - condicionales</p>
+@if (exist) {
+  <h3>El usuario existe</h3>
+}@else {
+  <h3>El usuario no existe</h3>
+}
+<!-- versiones anteriores a la 17 -->
+<p>CONDICIONAL DE VERSIONES ANTERIORES A LA 17</p>
+<p *ngIf="exist">Si existe en la ver 16 </p>
+
+<!-- CICLO FOR CON VERSION 17 ANGULAR -->
+<h2>JUSGOS - CICLO FOR ANGULAR 17</h2>
+@for (game of games; track game.id) {
+  <h3>Id {{ game.id }}</h3>
+  <h3>Nombre {{ game.name }}</h3>
+}
+<!-- PROPIEDAD BINDING DE ANGULAR 17  -->
+<!-- esto lo que hace es ponen el div como un formulario  -->
+<h3>PROPIEDAD BINDING DE ANGULAR 17</h3>
+<div class="editableDiv" [contentEditable]="isEditable"></div>
+
+<!-- HADLING DE EVENTOS -->
+<!-- eventos asignados: mouseover  -->
+<p (mouseover)="onMouseOver('Has puesto el mouse encima')">Pon el mouse encima</p>
+
+<!-- @input  -->
+<!-- Sirve para enviar en este caso una variable userOccupation = "Developer"; a un componente hijo, userComponent, en el app.component.html en la etiqueta de dicho componenete hijo al que se le va a mandar la variable se le pone en la etiqueta, [occupation]="userOccupation" un nombre cualquiera dentro de [] = "" a la variable que se va a enviar y dicha variable ya puede ser usada por el componente hijo -->
+<h3>INPUT - ENVIO DE PADRE A HIJO</h3>
+<!-- se esta ulizando el pipe uppercase para poner todo en mayuscula -->
+<p>{{ occupation | uppercase }}</p>
+
+<!-- OUTPUT -->
+<button (click)="emitToParent()">Mensaje del padre</button>
